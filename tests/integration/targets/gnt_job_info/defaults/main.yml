@@ -1,0 +1,6 @@
+mock_server: True
+wire_mock_port: 8443
+ganeti_rapi_address: "localhost"
+ganeti_rapi_port: "{{ wire_mock_port }}"
+ganeti_rapi_user: "test"
+ganeti_rapi_password: "secret"

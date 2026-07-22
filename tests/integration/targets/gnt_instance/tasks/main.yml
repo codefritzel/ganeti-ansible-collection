@@ -1,0 +1,57 @@
+---
+- name: Start WireMock
+  community.docker.docker_container:
+    name: wiremock
+    image: wiremock/wiremock:latest
+    state: started
+    ports:
+      - "{{ wire_mock_port }}:8443"
+    volumes:
+      - "{{ role_path }}/wiremock:/home/wiremock"
+    env:
+      WIREMOCK_OPTIONS: '--https-port 8443 --verbose'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "https://localhost:8443/__admin/health"]
+      interval: 3s
+      timeout: 2s
+      retries: 5
+    recreate: false
+  when: mock_server
+
+- name: Wait for WireMock
+  ansible.builtin.wait_for:
+    host: 127.0.0.1
+    port: "{{ wire_mock_port }}"
+    timeout: 6
+
+- name: Create Instance
+  codefritzel.ganeti.gnt_instance:
+    rapi_address: "{{ ganeti_rapi_address }}"
+    rapi_port: "{{ ganeti_rapi_port }}"
+    rapi_username: "{{ ganeti_rapi_user }}"
+    rapi_password: "{{ ganeti_rapi_password }}"
+    ssl_verify: false
+    instance_name: "new-instance.example.com"
+    disk_template: drbd
+    disks:
+      - size: 4G
+    beparams:
+      vcpus: 1
+      memory: 1024
+    os: "instance-guestfish+ubuntu-noble"
+    start: True
+  register: instance_create
+
+- name: Verify job info was retrieved successfully
+  assert:
+    that:
+      - instance_create.job.id == 100
+      - instance_create.job.status == "success"
+      - instance_create.changed
+
+- name: Stop WireMock
+  community.docker.docker_container:
+    name: wiremock
+    state: absent
+    force_kill: true
+  when: mock_server

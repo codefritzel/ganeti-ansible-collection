@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/2/instances",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.instance_name == 'new-instance.example.com')]"
+      }
+    ]
+  },
+  "response" : {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": 100
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/2/instances"
+  },
+  "response" : {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "instance_get.json"
+  }
+}

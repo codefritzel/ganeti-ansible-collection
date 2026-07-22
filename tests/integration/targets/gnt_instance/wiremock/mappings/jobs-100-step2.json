@@ -1,0 +1,16 @@
+{
+  "scenarioName": "Job100",
+  "requiredScenarioState": "100started",
+  "newScenarioState": "DONE",
+  "request": {
+    "method": "GET",
+    "url": "/2/jobs/100"
+  },
+  "response" : {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "jobs_100_2.json"
+  }
+}
