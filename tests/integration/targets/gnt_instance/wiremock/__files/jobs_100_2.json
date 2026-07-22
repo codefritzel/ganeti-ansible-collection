@@ -1,0 +1,219 @@
+{
+  "id": 100,
+  "ops": [
+    {
+      "dry_run": false,
+      "debug_level": 0,
+      "priority": 0,
+      "depends": null,
+      "comment": null,
+      "reason": [
+        [
+          "gnt:client:gnt-instance",
+          "add",
+          1779026267763980032
+        ],
+        [
+          "gnt:opcode:instance_create",
+          "job=100;index=0",
+          1779026267921347000
+        ]
+      ],
+      "OP_ID": "OP_INSTANCE_CREATE",
+      "instance_name": "new-instance.example.com",
+      "force_variant": false,
+      "wait_for_sync": true,
+      "name_check": false,
+      "ignore_ipolicy": false,
+      "opportunistic_locking": false,
+      "beparams": {
+        "vcpus": 1,
+        "maxmem": 1024,
+        "minmem": 1024
+      },
+      "disks": [
+        {
+          "size": 4096
+        }
+      ],
+      "disk_template": "drbd",
+      "hvparams": {},
+      "hypervisor": "kvm",
+      "iallocator": "hail",
+      "identify_defaults": false,
+      "ip_check": false,
+      "conflicts_check": true,
+      "mode": "create",
+      "nics": [
+        {
+          "ip": "pool",
+          "network": "vm-net"
+        }
+      ],
+      "no_install": false,
+      "osparams": {},
+      "osparams_private": {},
+      "osparams_secret": {},
+      "os_type": "instance-guestfish+debian-trixie",
+      "pnode": "node02.76c360208a01fd847502bb270beef44fd16f1426.gnt.test",
+      "pnode_uuid": "c2a760e8-eaa1-40f3-b2e8-70096a858eac",
+      "snode": "node03.76c360208a01fd847502bb270beef44fd16f1426.gnt.test",
+      "snode_uuid": "def7af11-1a3a-49cf-a348-dfc1e2194e71",
+      "source_shutdown_timeout": 120,
+      "compress": "none",
+      "start": true,
+      "forthcoming": false,
+      "commit": false,
+      "tags": [],
+      "instance_communication": false,
+      "helper_startup_timeout": 300,
+      "helper_shutdown_timeout": 7200
+    }
+  ],
+  "status": "success",
+  "summary": [
+    "INSTANCE_CREATE(new-instance.example.com)"
+  ],
+  "opstatus": [
+    "success"
+  ],
+  "received_ts": [
+    1779026267,
+    921347
+  ],
+  "start_ts": [
+    1779026268,
+    291655
+  ],
+  "end_ts": [
+    1779026351,
+    503590
+  ],
+  "oplog": [
+    [
+      [
+        1,
+        [
+          1779026268,
+          943744
+        ],
+        "message",
+        " - INFO: Selected nodes for instance new-instance.example.com via iallocator hail: node02.76c360208a01fd847502bb270beef44fd16f1426.gnt.test, node03.76c360208a01fd847502bb270beef44fd16f1426.gnt.test"
+      ],
+      [
+        2,
+        [
+          1779026268,
+          950799
+        ],
+        "message",
+        " - INFO: NIC/0 inherits netparams ['gnt-br0', 'bridged', '']"
+      ],
+      [
+        3,
+        [
+          1779026268,
+          953200
+        ],
+        "message",
+        " - INFO: Chose IP 10.0.0.45 from network vm-net"
+      ],
+      [
+        4,
+        [
+          1779026269,
+          737809
+        ],
+        "message",
+        "* creating instance disks..."
+      ],
+      [
+        5,
+        [
+          1779026272,
+          112504
+        ],
+        "message",
+        "adding instance new-instance.example.com to cluster config"
+      ],
+      [
+        6,
+        [
+          1779026272,
+          122389
+        ],
+        "message",
+        "adding disks to cluster config"
+      ],
+      [
+        7,
+        [
+          1779026272,
+          315167
+        ],
+        "message",
+        " - INFO: Waiting for instance new-instance.example.com to sync disks"
+      ],
+      [
+        8,
+        [
+          1779026272,
+          438655
+        ],
+        "message",
+        " - INFO: - device disk/0:  0.40% done, 6m 42s remaining (estimated)"
+      ],
+      [
+        9,
+        [
+          1779026332,
+          541178
+        ],
+        "message",
+        " - INFO: Instance new-instance.example.com's disks are in sync"
+      ],
+      [
+        10,
+        [
+          1779026332,
+          544899
+        ],
+        "message",
+        " - INFO: Waiting for instance new-instance.example.com to sync disks"
+      ],
+      [
+        11,
+        [
+          1779026332,
+          646236
+        ],
+        "message",
+        " - INFO: Instance new-instance.example.com's disks are in sync"
+      ],
+      [
+        12,
+        [
+          1779026332,
+          696991
+        ],
+        "message",
+        "* running the instance OS create scripts..."
+      ],
+      [
+        13,
+        [
+          1779026351,
+          16499
+        ],
+        "message",
+        "* starting instance..."
+      ]
+    ]
+  ],
+  "opresult": [
+    [
+      "node02.76c360208a01fd847502bb270beef44fd16f1426.gnt.test",
+      "node03.76c360208a01fd847502bb270beef44fd16f1426.gnt.test"
+    ]
+  ]
+}

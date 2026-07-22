@@ -1,0 +1,10 @@
+[
+  {
+    "id": "vm1.example.com",
+    "uri": "/2/instances/vm1.example.com"
+  },
+  {
+    "id": "vm2.example.com",
+    "uri": "/2/instances/vm2.example.com"
+  }
+]

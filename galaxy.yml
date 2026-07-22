@@ -1,0 +1,22 @@
+namespace: codefritzel
+name: ganeti
+version: 0.0.1
+authors:
+  - codefritzel <spam@example.com>
+readme: README.md
+description: Collection for managing ganeti clusters
+tags:
+  - api
+  - ganeti
+
+dependencies: {}
+
+
+build_ignore:
+  - .venv
+  - .idea
+  - .git
+  - .github
+  - .pytest_cache
+  - .ruff_cache
+  - tests
